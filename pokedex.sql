@@ -42,10 +42,16 @@ create table especies (
 	especie		varchar
 );
 
+-- Insertando la especie del pokémon
 insert into especies (especie) values
-(),
-(),
+('POKéMON SEMILLA'),
+('POKéMON LLAMA'),
+('POKéMON MARISCO'),
+('POKéMON PÁJARO'),
+('POKéMON SOMBRA'),
+('POKéMON RELÁMPAGO');
 
+-- Creando tabla pokemon
 drop table if exists pokemon;
 create table pokemon (
 	id_pokemon			integer primary key AUTOINCREMENT,
