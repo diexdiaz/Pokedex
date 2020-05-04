@@ -3,7 +3,7 @@
  * @filename  	pokedex.sql
  * @version   	1.0
  * @autor     	Díaz Urbaneja Víctor Eduardo Diex <victor.vector008@gmail.com>
- * @distributor Díaz Urbaneja Víctor Diex Gamar	<Sirkennov@outlook.com>
+ * @contributor Díaz Urbaneja Víctor Diex Gamar	<Sirkennov@outlook.com>
  * @date      	04.05.2020 14:44:22 -04
  */
 
