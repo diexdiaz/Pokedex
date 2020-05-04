@@ -8,8 +8,8 @@
 
 pragma foreign_keys = on;
 
-drop table if exists tipo;
-create table tipo (
+drop table if exists tipos;
+create table tipos (
 	id_tipo integer primary key AUTOINCREMENT,
 	tipo	varchar
 );
