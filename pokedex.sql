@@ -13,3 +13,9 @@ create table tipos (
 	id_tipo integer primary key AUTOINCREMENT,
 	tipo	varchar
 );
+
+drop table if exists especie;
+create table especie (
+	id_especie 	integer primary key AUTOINCREMENT,
+	especie		varchar
+);
