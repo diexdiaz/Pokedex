@@ -24,5 +24,7 @@ drop table if exists pokemon;
 create table pokemon (
 	id_pokemon 	integer primary key AUTOINCREMENT,
 	nombre		varchar,
+	altura		varchar,
+	peso		varchar,
 	descripcion	varchar
 );
