@@ -9,13 +9,14 @@
 
 pragma foreign_keys = on;
 
+-- Creando la tabla tipos
 drop table if exists tipos;
 create table tipos (
 	id_tipo	integer primary key AUTOINCREMENT,
 	tipo	varchar
 );
 
--- Insertando los tipos de pokemon
+-- Insertando los tipos de pokémon
 
 insert into tipos (tipo) values
 ('VOLADOR.'),
@@ -36,13 +37,14 @@ insert into tipos (tipo) values
 ('HIELO.'),
 ('BICHO.');
 
+-- creando la tabla especies
 drop table if exists especies;
 create table especies (
 	id_especie	integer primary key AUTOINCREMENT,
 	especie		varchar
 );
 
--- Insertando la especie del pokémon
+-- Insertando las especies de pokémon
 insert into especies (especie) values
 ('POKéMON SEMILLA'),
 ('POKéMON LLAMA'),
