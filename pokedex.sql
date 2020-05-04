@@ -48,13 +48,15 @@ insert into especies (especie) values
 
 drop table if exists pokemon;
 create table pokemon (
-	id_pokemon	integer primary key AUTOINCREMENT,
-	nombre		varchar,
-	id_especie	integer not null,
-	altura		varchar,
-	peso		varchar,
-	id_tipo		integer not null,
-	descripcion	varchar,
-	foreign key	( id_especie ) references especies ( id_especie ),
-	foreign key	( id_tipo ) references tipos ( id_tipo )
+	id_pokemon			integer primary key AUTOINCREMENT,
+	nombre				varchar,
+	id_especie			integer not null,
+	altura				varchar,
+	peso				varchar,
+	id_primer_tipo		integer not null,
+	id_segundo_tipo		integer,
+	descripcion			varchar,
+	foreign key			( id_especie ) references especies ( id_especie ),
+	foreign key			( id_primer_tipo ) references tipos ( id_tipo ),
+	foreign key			( id_segundo_tipo ) references tipos ( id_tipo )
 );
