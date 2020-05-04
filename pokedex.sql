@@ -31,3 +31,10 @@ create table pesos (
 	id_peso 	integer primary key AUTOINCREMENT,
 	peso		varchar
 );
+
+drop table if exists pokemon;
+create table pokemon (
+	id_pokemon 	integer primary key AUTOINCREMENT,
+	nombre		varchar,
+	descripcion	varchar
+);
