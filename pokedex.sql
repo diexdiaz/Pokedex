@@ -19,3 +19,9 @@ create table especies (
 	id_especie 	integer primary key AUTOINCREMENT,
 	especie		varchar
 );
+
+drop table if exists alturas;
+create table alturas (
+	id_altura 	integer primary key AUTOINCREMENT,
+	altura		varchar
+);
