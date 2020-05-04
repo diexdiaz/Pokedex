@@ -33,7 +33,7 @@ insert into tipos (tipo) values
 ('VENENO.'),
 ('TIERRA.'),
 ('ELÉCTRICO.'),
-('HIELO.')
+('HIELO.'),
 ('BICHO.');
 
 drop table if exists especies;
@@ -41,6 +41,10 @@ create table especies (
 	id_especie 	integer primary key AUTOINCREMENT,
 	especie		varchar
 );
+
+insert into especies (especie) values
+(),
+(),
 
 drop table if exists pokemon;
 create table pokemon (
@@ -52,5 +56,5 @@ create table pokemon (
 	id_tipo		varchar,
 	descripcion	varchar,
 	foreign key ( id_especie ) references especies ( id_especie ),
-	foreign key (id_tipo     ) references tipos    (id_tipo     )
+	foreign key ( id_tipo ) references tipos ( id_tipo )
 );
