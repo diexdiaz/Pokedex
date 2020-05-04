@@ -25,3 +25,9 @@ create table alturas (
 	id_altura 	integer primary key AUTOINCREMENT,
 	altura		varchar
 );
+
+drop table if exists pesos;
+create table pesos (
+	id_peso 	integer primary key AUTOINCREMENT,
+	peso		varchar
+);
