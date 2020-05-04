@@ -1,9 +1,10 @@
 /**!
- * @package   Pokedex
- * @filename  pokedex.sql
- * @version   1.0
- * @autor     Díaz Urbaneja Víctor Eduardo Diex <victor.vector008@gmail.com>
- * @date      04.05.2020 14:44:22 -04
+ * @package   	Pokedex
+ * @filename  	pokedex.sql
+ * @version   	1.0
+ * @autor     	Díaz Urbaneja Víctor Eduardo Diex <victor.vector008@gmail.com>
+ * @distributor Díaz Urbaneja Víctor Diex Gamar	<Sirkennov@outlook.com>
+ * @date      	04.05.2020 14:44:22 -04
  */
 
 pragma foreign_keys = on;
@@ -13,6 +14,27 @@ create table tipos (
 	id_tipo integer primary key AUTOINCREMENT,
 	tipo	varchar
 );
+
+-- Insertando los tipos de pokemon
+
+insert into tipos (tipo) values
+('VOLADOR.'),
+('LUCHA.'),
+('PLANTA.'),
+('FUEGO.'),
+('AGUA.'),
+('ROCA.'),
+('ACERO.'),
+('PSÍQUICO.'),
+('FANTASMA.'),
+('SINIESTRO.'),
+('DRAGÓN.'),
+('NORMAL.'),
+('VENENO.'),
+('TIERRA.'),
+('ELÉCTRICO.'),
+('HIELO.')
+('BICHO.');
 
 drop table if exists especies;
 create table especies (
