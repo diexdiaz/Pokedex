@@ -16,8 +16,7 @@ create table tipos (
 	tipo	varchar
 );
 
--- Insertando los tipos de pokémon
-
+-- Insertando los tipos de pokemon
 insert into tipos (tipo) values
 ('VOLADOR.'),
 ('LUCHA.'),
@@ -37,14 +36,14 @@ insert into tipos (tipo) values
 ('HIELO.'),
 ('BICHO.');
 
--- creando la tabla especies
+-- Creando tabla de especies
 drop table if exists especies;
 create table especies (
 	id_especie	integer primary key AUTOINCREMENT,
 	especie		varchar
 );
 
--- Insertando las especies de pokémon
+-- Insertando las especies del pokémon
 insert into especies (especie) values
 ('POKéMON SEMILLA'),
 ('POKéMON LLAMA'),
@@ -67,4 +66,38 @@ create table pokemon (
 	foreign key			( id_especie ) references especies ( id_especie ),
 	foreign key			( id_primer_tipo ) references tipos ( id_tipo ),
 	foreign key			( id_segundo_tipo ) references tipos ( id_tipo )
+);
+
+-- Insertando datos del pokémon
+insert into pokemon (nombre, id_especie, altura, peso, id_primer_tipo,
+id_segundo_tipo, descripcion) values
+(
+	'VENUSAUR', 1, '2,0m', '100,0kg', 3, 13,
+	'La flor que tiene en el lomo libera un delicado aroma.
+	En combate este aroma tiene un efecto relajante.'
+),
+(
+	'CHARIZARD', 2, '1,7m', '90,5kg', 4, 1,
+	'Con las alas que tiene puede alcanzar una altura de casi 1.400m.
+	Suele escupir fuego por la boca.'
+),
+(
+	'BLASTOISE', 3, '1,6m', '85,5kg', 5,
+	'Para acabar con su enemigo, lo aplasta con el peso de su cuerpo.
+	En momentos de apuro, se esconde en el caparazón.'
+),
+(
+	'PIDGEOT', 4, '1,5m', '39,5kg', 12, 1,
+	'Para intimidar a su enemigo, extiende las increíbles alas que tiene.
+	Este POKéMON vuela a una velocidad increíble.'
+),
+(
+	'GENGAR', 5, '1,5m', '40,5kg', 9, 13,
+	'Dicen que sale de la oscuridad para robarle el alma a los que se pierden
+	en las montañas.'
+),
+(
+	'JOLTEON', 6, '0,8m', '24,5kg', 15,
+	'Si se enfada o asusta, se le eriza el pelaje. Cada pelo se le convierte
+	en una afilada púa que hace trizas al rival.'
 );
