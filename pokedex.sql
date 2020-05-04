@@ -97,3 +97,22 @@ insert into pokemon (nombre, id_especie, altura, peso, descripcion) values
 	en una afilada púa que hace trizas al rival.'
 );
 
+create table tipos_pokemon (
+	id_pokemon	integer not null,
+	id_tipo		integer not null,
+	foreign key (id_pokemon) references pokemon (id_pokemon),
+	foreign key (id_tipo) 	 references tipos (id_tipo)
+);
+
+insert into tipos_pokemon (id_pokemon, id_tipo) values
+( 1, 3  ),	-- VENUSAUR
+( 1, 13 ),
+( 2, 4  ),	-- CHARIZARD
+( 2, 1  ),
+( 3, 5  ),	-- BLASTOISE
+( 4, 12 ),	-- PIDGEOT
+( 4, 1  ),
+( 5, 9  ),	-- GENGAR
+( 5, 13 ),
+( 6, 15 );	-- JOLTEON
+
