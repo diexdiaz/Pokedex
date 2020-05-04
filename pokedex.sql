@@ -7,3 +7,9 @@
  */
 
 pragma foreign_keys = on;
+
+drop table if exists tipo;
+create table tipo (
+	id_tipo integer primary key AUTOINCREMENT,
+	tipo	varchar
+);
