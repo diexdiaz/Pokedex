@@ -20,18 +20,6 @@ create table especies (
 	especie		varchar
 );
 
-drop table if exists alturas;
-create table alturas (
-	id_altura 	integer primary key AUTOINCREMENT,
-	altura		varchar
-);
-
-drop table if exists pesos;
-create table pesos (
-	id_peso 	integer primary key AUTOINCREMENT,
-	peso		varchar
-);
-
 drop table if exists pokemon;
 create table pokemon (
 	id_pokemon 	integer primary key AUTOINCREMENT,
