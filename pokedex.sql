@@ -116,3 +116,11 @@ insert into tipos_pokemon (id_pokemon, id_tipo) values
 ( 5, 13 ),
 ( 6, 15 );	-- JOLTEON
 
+-- Creando vista pokedex
+create view pokedex as
+select pokemon.id_pokemon as num, nombre, tipos.tipo,
+especies.especie, pokemon.altura, peso, descripcion
+from pokemon
+join especies on ( pokemon.id_especie = especies.id_especie )
+join tipos_pokemon on ( pokemon.id_pokemon = tipos_pokemon.id_pokemon )
+join tipos on ( tipos_pokemon.id_tipo = tipos.id_tipo );
