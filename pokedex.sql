@@ -33,7 +33,7 @@ create table regiones (
 	region		varchar
 );
 
--- Insertando datos en la tabla redione
+-- Insertando datos en la tabla regiones
 insert into regiones (region) values
 ('KANTO'),
 ('JOHTO'),
@@ -91,43 +91,47 @@ insert into especies (especie) values
 drop table if exists pokemon;
 create table pokemon (
 	id_pokemon			integer primary key AUTOINCREMENT,
-	nombre				varchar,
+	nombre				varchar not null,
 	id_especie			integer not null,
-	altura				varchar,
-	peso				varchar,
-	descripcion			varchar,
-	foreign key			( id_especie ) references especies ( id_especie )
+	id_habitat			integer not null,
+	id_region			integer not null,
+	altura				varchar not null,
+	peso				varchar not null,
+	descripcion			varchar not null,
+	foreign key			( id_especie ) references especies ( id_especie ),
+	foreign key 		(id_habitat	 ) references habitats (id_habitat),
+	foreign key 		(id_region	 ) references regiones (id_region)
 );
 
 -- Insertando datos del pokémon
-insert into pokemon (nombre, id_especie, altura, peso, descripcion) values
+insert into pokemon (nombre, id_especie, altura, peso, id_habitat, id_region,  descripcion) values
 (
-	'VENUSAUR', 1, '2,0m', '100,0kg',
+	'VENUSAUR', 1, '2,0m', '100,0kg', 1, 1,
 	'La flor que tiene en el lomo libera un delicado aroma.
 	En combate este aroma tiene un efecto relajante.'
 ),
 (
-	'CHARIZARD', 2, '1,7m', '90,5kg',
+	'CHARIZARD', 2, '1,7m', '90,5kg', 2, 1,
 	'Con las alas que tiene puede alcanzar una altura de casi 1.400m.
 	Suele escupir fuego por la boca.'
 ),
 (
-	'BLASTOISE', 3, '1,6m', '85,5kg',
+	'BLASTOISE', 3, '1,6m', '85,5kg', 3, 1,
 	'Para acabar con su enemigo, lo aplasta con el peso de su cuerpo.
 	En momentos de apuro, se esconde en el caparazón.'
 ),
 (
-	'PIDGEOT', 4, '1,5m', '39,5kg',
+	'PIDGEOT', 4, '1,5m', '39,5kg', 2, 1,
 	'Para intimidar a su enemigo, extiende las increíbles alas que tiene.
 	Este POKéMON vuela a una velocidad increíble.'
 ),
 (
-	'GENGAR', 5, '1,5m', '40,5kg',
+	'GENGAR', 5, '1,5m', '40,5kg', 5, 1,
 	'Dicen que sale de la oscuridad para robarle el alma a los que se pierden
 	en las montañas.'
 ),
 (
-	'JOLTEON', 6, '0,8m', '24,5kg',
+	'JOLTEON', 6, '0,8m', '24,5kg', 8, 1,
 	'Si se enfada o asusta, se le eriza el pelaje. Cada pelo se le convierte
 	en una afilada púa que hace trizas al rival.'
 );
