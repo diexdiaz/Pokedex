@@ -9,14 +9,14 @@
 
 pragma foreign_keys = on;
 
--- Creando la tabla hábitat
+-- Creando la tabla habitats
 create table habitats (
 	id_habitat	integer primary key autoincrement,
 	habitat		varchar
 );
 
 -- Insertando hábitat de el pokémon
-insert into habitat (habitat) values
+insert into habitats (habitat) values
 ('POKéMON DE PRADERA'),
 ('POKéMON DE BOSQUE'),
 ('POKéMON AGUA DULCE'),
@@ -27,11 +27,22 @@ insert into habitat (habitat) values
 ('POKéMON CIUDAD'),
 ('POKéMON RAROS');
 
--- Creando la tabla region
+-- Creando la tabla regiones
 create table regiones (
 	id_region	integer primary key autoincrement,
 	region		varchar
 );
+
+-- Insertando datos en la tabla redione
+insert into regiones (region) values
+('KANTO'),
+('JOHTO'),
+('HOENN'),
+('SINNOH'),
+('TESELIA'),
+('KALOS'),
+('ALOLA'),
+('GALAR');
 
 -- Creando la tabla tipos
 drop table if exists tipos;
