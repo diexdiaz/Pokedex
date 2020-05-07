@@ -138,7 +138,7 @@ insert into pokemon (nombre, id_especie, altura, peso, id_habitat, id_region,  d
 
 create table tipos_pokemon (
 	id_pokemon	integer not null,
-	id_tipo		integer,
+	id_tipo		integer not null,
 	foreign key (id_pokemon) references pokemon (id_pokemon),
 	foreign key (id_tipo) 	 references tipos (id_tipo)
 );
@@ -155,13 +155,13 @@ insert into tipos_pokemon (id_pokemon, id_tipo) values
 ( 5, 13 ),
 ( 6, 15 );	-- JOLTEON
 
--- Creando vista pokédex
+-- Creando vista pokedex
 create view pokedex as
 select pokemon.id_pokemon as num, nombre, tipos.tipo,
 especies.especie, regiones.region, habitats.habitat,  pokemon.altura, peso, descripcion
 from pokemon
 join especies 	   on ( pokemon.id_especie 	  = especies.id_especie 	 )
 join habitats 	   on ( pokemon.id_habitat 	  = habitats.id_habitat	     )
-join regiones 	   on ( pokemon.id_region  	  = regiones.id_region			 )
+join regiones 	   on ( pokemon.id_region  	  = regiones.id_region	     )
 join tipos_pokemon on ( pokemon.id_pokemon	  = tipos_pokemon.id_pokemon )
 join tipos 		   on ( tipos_pokemon.id_tipo = tipos.id_tipo			 );
