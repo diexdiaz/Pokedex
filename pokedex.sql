@@ -9,9 +9,16 @@
 
 pragma foreign_keys = on;
 
+-- Creando la tabla habitat
 create table habitat (
 	id_habitat	integer primary key autoincrement,
 	habitat		varchar
+);
+
+-- Creando la tabla region
+create table region (
+	id_region	integer primary key autoincrement,
+	region		varchar
 );
 
 -- Creando la tabla tipos
