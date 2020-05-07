@@ -9,11 +9,23 @@
 
 pragma foreign_keys = on;
 
--- Creando la tabla habitat
+-- Creando la tabla hábitat
 create table habitat (
 	id_habitat	integer primary key autoincrement,
 	habitat		varchar
 );
+
+-- Insertando hábitat de el pokémon
+insert into habitat (habitat) values
+('POKéMON DE PRADERA'),
+('POKéMON DE BOSQUE'),
+('POKéMON AGUA DULCE'),
+('POKéMON AGUA SALADA'),
+('POKéMON CAVERNA'),
+('POKéMON MONTAÑA'),
+('POKéMON CAMPO'),
+('POKéMON CIUDAD'),
+('POKéMON RAROS');
 
 -- Creando la tabla region
 create table region (
@@ -28,7 +40,7 @@ create table tipos (
 	tipo	varchar
 );
 
--- Insertando los tipos de pokemon
+-- Insertando los tipos de pokémon
 insert into tipos (tipo) values
 ('VOLADOR.'),
 ('LUCHA.'),
@@ -128,7 +140,7 @@ insert into tipos_pokemon (id_pokemon, id_tipo) values
 ( 5, 13 ),
 ( 6, 15 );	-- JOLTEON
 
--- Creando vista pokedex
+-- Creando vista pokédex
 create view pokedex as
 select pokemon.id_pokemon as num, nombre, tipos.tipo,
 especies.especie, pokemon.altura, peso, descripcion
