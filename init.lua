@@ -15,20 +15,20 @@ local ui 				= builder.objects
 
 local main_window  		= ui.main_window								-- esta seria la vetana de el main de la pokédex
 local about_window  	= ui.about_window								-- esta seria la vetana de el about de la pokédex
-local btn_about    		= builder:get_object('btn_about')				-- este seria el boton de el about de la pokédex
-local entry_nombre  	= builder:get_object('entry_nombre')			-- esta seria la entrada de el nombre de el pokémon
+local btn_about    		= builder:get_object ('btn_about')				-- este seria el boton de el about de la pokédex
+local entry_nombre  	= builder:get_object ('entry_nombre')			-- esta seria la entrada de el nombre de el pokémon
 local entry_especie 	= builder:get_object ('entry_especie')			-- esta seria la entrada de la especie de el pokémon
 local entry_altura 		= builder:get_object ('entry_altura')			-- esta seria la entrada de la altura de el pokémon
-local entry_habitat 	= builder:get_object ('entry_habitat')			-- esta seria el input para seleccionar el habitat del pokémon
+local select_habitat 	= builder:get_object ('select_habitat')			-- esta seria el input para seleccionar el habitat del pokémon
 local entry_peso 		= builder:get_object ('entry_peso')				-- esta seria la entrada de el peso de el pokémon
-local entry_region 		= builder:get_object ('entry_region')			-- este seria el input para seleccionar la región del pokémon
-local entry_tipo1 		= builder:get_object ('entry_tipo1')			-- este seria el input para seleccionar el primer tipo del pokémon
-local entry_tipo2   	= builder:get_object ('entry_tipo2')			-- este seria el input para seleccionar el segundo tipo del pokémon
-local select_imagen 	= builder:get_object('select_imagen')			-- este seria el input para seleccionar la imagen de el pokémon
-local entry_descripcion = builder:get_object ('entry_descripcion')		-- esta seria la entrada de la descripción de el pokémon
-local btn_cancelar  	= builder:get_object('btn_cancelar')			-- este seria el boton de cancelar de la pokédex
-local btn_editar 		= builder:get_object('btn_editar')				-- este seria el boton de editar de la pokédex
-local btn_guardar 		= builder:get_object('btn_guardar')				-- este seria el boton de guardar de la pokédex
+local select_region 	= builder:get_object ('select_region')			-- este seria el input para seleccionar la región del pokémon
+local select_tipo1 		= builder:get_object ('select_tipo1')			-- este seria el input para seleccionar el primer tipo del pokémon
+local select_tipo2   	= builder:get_object ('select_tipo2')			-- este seria el input para seleccionar el segundo tipo del pokémon
+local select_imagen 	= builder:get_object ('select_imagen')			-- este seria el input para seleccionar la imagen de el pokémon
+local input_descripcion = builder:get_object ('input_descripcion')		-- esta seria la entrada de la descripción de el pokémon
+local btn_cancelar  	= builder:get_object ('btn_cancelar')			-- este seria el boton de cancelar de la pokédex
+local btn_editar 		= builder:get_object ('btn_editar')				-- este seria el boton de editar de la pokédex
+local btn_guardar 		= builder:get_object ('btn_guardar')			-- este seria el boton de guardar de la pokédex
 
 
 
