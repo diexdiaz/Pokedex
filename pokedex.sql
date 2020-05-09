@@ -100,7 +100,8 @@ create table pokemon (
 	descripcion			varchar not null,
 	foreign key			(id_especie  ) references especies (id_especie ),
 	foreign key 		(id_habitat	 ) references habitats (id_habitat ),
-	foreign key 		(id_region	 ) references regiones (id_region  )
+	foreign key 		(id_region	 ) references regiones (id_region  ),
+	unique				(nombre)
 );
 
 -- Insertando datos del pokémon
