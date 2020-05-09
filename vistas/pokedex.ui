@@ -544,6 +544,7 @@ That's all there is to it!
       </object>
     </child>
   </object>
+  <object class="GtkTextBuffer" id="description_buffer"/>
   <object class="GtkWindow" id="main_window">
     <property name="can_focus">False</property>
     <property name="halign">center</property>
@@ -586,7 +587,9 @@ That's all there is to it!
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_left">5</property>
+                <property name="margin_right">5</property>
                 <property name="margin_bottom">5</property>
+                <property name="button_sensitivity">on</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -600,6 +603,7 @@ That's all there is to it!
                 <property name="margin_left">5</property>
                 <property name="margin_right">5</property>
                 <property name="margin_bottom">5</property>
+                <property name="button_sensitivity">on</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -624,8 +628,10 @@ That's all there is to it!
               <object class="GtkComboBoxText" id="select_region">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_left">5</property>
                 <property name="margin_right">5</property>
                 <property name="margin_bottom">5</property>
+                <property name="button_sensitivity">on</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -637,24 +643,12 @@ That's all there is to it!
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="margin_left">5</property>
+                <property name="margin_right">5</property>
                 <property name="margin_bottom">5</property>
                 <property name="placeholder_text" translatable="yes">Ej: 1,45m</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
-                <property name="top_attach">3</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkComboBoxText" id="select_habitat">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="margin_left">5</property>
-                <property name="margin_right">5</property>
-                <property name="margin_bottom">5</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
                 <property name="top_attach">3</property>
               </packing>
             </child>
@@ -670,20 +664,6 @@ That's all there is to it!
               </object>
               <packing>
                 <property name="left_attach">0</property>
-                <property name="top_attach">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="input_especie">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="margin_right">5</property>
-                <property name="margin_top">5</property>
-                <property name="margin_bottom">5</property>
-                <property name="placeholder_text" translatable="yes">Ej: Pokémon semilla</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
                 <property name="top_attach">1</property>
               </packing>
             </child>
@@ -797,58 +777,75 @@ That's all there is to it!
                 <property name="top_attach">6</property>
               </packing>
             </child>
+            <child>
+              <object class="GtkComboBoxText" id="select_habitat">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_left">5</property>
+                <property name="margin_right">5</property>
+                <property name="margin_bottom">5</property>
+                <property name="button_sensitivity">on</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButtonBox">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="layout_style">start</property>
+                <child>
+                  <object class="GtkComboBoxText" id="select_especie">
+                    <property name="width_request">85</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_left">5</property>
+                    <property name="button_sensitivity">on</property>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn_agregar_especie">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">Añadir especie</property>
+                    <property name="margin_right">5</property>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="width_request">0</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="stock">gtk-add</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                    <property name="non_homogeneous">True</property>
+                  </packing>
+                </child>
+                <style>
+                  <class name="linked"/>
+                </style>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
           </object>
           <packing>
             <property name="left_attach">0</property>
             <property name="top_attach">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButtonBox">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="layout_style">start</property>
-            <child>
-              <object class="GtkButton" id="btn_cancelar">
-                <property name="label" translatable="yes">Cancelar</property>
-                <property name="width_request">99</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="margin_left">5</property>
-                <property name="margin_right">5</property>
-                <property name="margin_top">5</property>
-                <property name="margin_bottom">5</property>
-                <property name="border_width">0</property>
-              </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="btn_guardar">
-                <property name="label" translatable="yes">Guardar</property>
-                <property name="width_request">157</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="margin_left">5</property>
-                <property name="margin_right">5</property>
-                <property name="margin_top">5</property>
-                <property name="margin_bottom">5</property>
-              </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">2</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">3</property>
           </packing>
         </child>
         <child>
@@ -919,6 +916,7 @@ That's all there is to it!
                 <property name="margin_left">5</property>
                 <property name="margin_right">5</property>
                 <property name="shadow_type">in</property>
+                <property name="propagate_natural_width">True</property>
                 <child>
                   <object class="GtkTextView" id="input_descripcion">
                     <property name="visible">True</property>
@@ -927,12 +925,14 @@ That's all there is to it!
                     <property name="right_margin">5</property>
                     <property name="top_margin">5</property>
                     <property name="bottom_margin">5</property>
+                    <property name="buffer">description_buffer</property>
                   </object>
                 </child>
               </object>
               <packing>
-                <property name="expand">False</property>
+                <property name="expand">True</property>
                 <property name="fill">True</property>
+                <property name="pack_type">end</property>
                 <property name="position">1</property>
               </packing>
             </child>
@@ -940,6 +940,153 @@ That's all there is to it!
           <packing>
             <property name="left_attach">0</property>
             <property name="top_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkGrid">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="row_homogeneous">True</property>
+            <property name="column_homogeneous">True</property>
+            <child>
+              <object class="GtkButton" id="btn_cancelar">
+                <property name="label" translatable="yes">Cancelar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">5</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_guardar">
+                <property name="label" translatable="yes">Guardar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">5</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label_pokedex">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">3</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkDialog" id="especies_window">
+    <property name="can_focus">False</property>
+    <property name="window_position">center</property>
+    <property name="type_hint">dialog</property>
+    <property name="gravity">center</property>
+    <child type="titlebar">
+      <object class="GtkHeaderBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="title" translatable="yes">Insertar especie</property>
+        <property name="show_close_button">True</property>
+      </object>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="btn_guardar_especie">
+                <property name="label" translatable="yes">Guardar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="margin_left">5</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">5</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_cancelar_especie">
+                <property name="label" translatable="yes">Cancelar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="margin_left">5</property>
+                <property name="margin_right">5</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">5</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="input_insert_especie">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="margin_left">5</property>
+            <property name="margin_right">5</property>
+            <property name="margin_top">5</property>
+            <property name="margin_bottom">5</property>
+            <property name="placeholder_text" translatable="yes">Ej: POKéMON MARISCO</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label_especie">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">5</property>
+            <property name="margin_right">5</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
           </packing>
         </child>
       </object>
