@@ -17,15 +17,15 @@ create table habitats (
 
 -- Insertando hábitat de el pokémon
 insert into habitats (habitat) values
-('POKéMON DE PRADERA' ),
-('POKéMON DE BOSQUE'  ),
-('POKéMON AGUA DULCE' ),
-('POKéMON AGUA SALADA'),
-('POKéMON CAVERNA'	  ),
-('POKéMON MONTAÑA'	  ),
-('POKéMON CAMPO'	  ),
-('POKéMON CIUDAD'	  ),
-('POKéMON RAROS'	  );
+('POKéMON de pradera'	 ),
+('POKéMON de bosque'	 ),
+('POKéMON de agua dulce' ),
+('POKéMON de agua salada'),
+('POKéMON de caverna'	 ),
+('POKéMON de montaña'	 ),
+('POKéMON de campo'	  	 ),
+('POKéMON de ciudad'	 ),
+('POKéMON raros'	  	 );
 
 -- Creando la tabla regiones
 create table regiones (
@@ -95,45 +95,14 @@ create table pokemon (
 	id_especie			integer not null,
 	id_habitat			integer not null,
 	id_region			integer not null,
+	imagen				varchar not null,
 	altura				varchar not null,
 	peso				varchar not null,
 	descripcion			varchar not null,
 	foreign key			(id_especie  ) references especies (id_especie ),
 	foreign key 		(id_habitat	 ) references habitats (id_habitat ),
-	foreign key 		(id_region	 ) references regiones (id_region  )
-);
-
--- Insertando datos del pokémon
-insert into pokemon (nombre, id_especie, altura, peso, id_habitat, id_region,  descripcion) values
-(
-	'VENUSAUR', 1, '2,0m', '100,0kg', 1, 1,
-	'La flor que tiene en el lomo libera un delicado aroma.
-	En combate este aroma tiene un efecto relajante.'
-),
-(
-	'CHARIZARD', 2, '1,7m', '90,5kg', 2, 1,
-	'Con las alas que tiene puede alcanzar una altura de casi 1.400m.
-	Suele escupir fuego por la boca.'
-),
-(
-	'BLASTOISE', 3, '1,6m', '85,5kg', 3, 1,
-	'Para acabar con su enemigo, lo aplasta con el peso de su cuerpo.
-	En momentos de apuro, se esconde en el caparazón.'
-),
-(
-	'PIDGEOT', 4, '1,5m', '39,5kg', 2, 1,
-	'Para intimidar a su enemigo, extiende las increíbles alas que tiene.
-	Este POKéMON vuela a una velocidad increíble.'
-),
-(
-	'GENGAR', 5, '1,5m', '40,5kg', 5, 1,
-	'Dicen que sale de la oscuridad para robarle el alma a los que se pierden
-	en las montañas.'
-),
-(
-	'JOLTEON', 6, '0,8m', '24,5kg', 8, 1,
-	'Si se enfada o asusta, se le eriza el pelaje. Cada pelo se le convierte
-	en una afilada púa que hace trizas al rival.'
+	foreign key 		(id_region	 ) references regiones (id_region  ),
+	unique				(nombre)
 );
 
 create table tipos_pokemon (
@@ -143,22 +112,10 @@ create table tipos_pokemon (
 	foreign key (id_tipo) 	 references tipos (id_tipo)
 );
 
-insert into tipos_pokemon (id_pokemon, id_tipo) values
-( 1, 3  ),	-- VENUSAUR
-( 1, 13 ),
-( 2, 4  ),	-- CHARIZARD
-( 2, 1  ),
-( 3, 5  ),	-- BLASTOISE
-( 4, 12 ),	-- PIDGEOT
-( 4, 1  ),
-( 5, 9  ),	-- GENGAR
-( 5, 13 ),
-( 6, 15 );	-- JOLTEON
-
 -- Creando vista pokedex
 create view pokedex as
 select pokemon.id_pokemon as num, nombre, tipos.tipo,
-especies.especie, regiones.region, habitats.habitat,  pokemon.altura, peso, descripcion
+especies.especie, regiones.region, habitats.habitat, pokemon.altura, peso, descripcion, imagen
 from pokemon
 join especies 	   on ( pokemon.id_especie 	  = especies.id_especie 	 )
 join habitats 	   on ( pokemon.id_habitat 	  = habitats.id_habitat	     )

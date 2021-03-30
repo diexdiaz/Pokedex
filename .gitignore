@@ -1,1 +1,3 @@
-test/
+pokedex.db-shm
+pokedex.db-wal
+pokedex.db
